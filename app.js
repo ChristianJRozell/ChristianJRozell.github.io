@@ -11,7 +11,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-const indexRouter = require('./routes/index');
+const garageRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const CarRouter = require('./routes/car_module');
 
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/garage', garageRouter);
 app.use('/users', usersRouter);
 app.use('/car_module', CarRouter);
 

@@ -1,5 +1,6 @@
 let cars = require('../routes/car_module');
 let carmodel = require('../models/car_model');
+const { model } = require('mongoose');
 
 exports.car_list = function (req, res, next) {
   // Create an instance of model SomeModel
@@ -8,21 +9,42 @@ exports.car_list = function (req, res, next) {
     model: req.body.model_dropdown,
     year: req.body.year_dropdown,
   });
-  console.log(req.body);
   // Save the new model instance, passing a callback
-  car_instance.save(function (err) {
-    if (err) return err.message;
-    // saved!
-  });
 
   carmodel
-    .find({}, 'make model year')
-    .populate('make')
+    .find({})
+    .then()
     .exec(function (err, list_cars) {
       if (err) {
         return next(err);
       }
+      let result;
+
+      result = list_cars.map(
+        (obj) => `${obj.make + ' ' + obj.model + ' ' + obj.year + '\n'}`
+      );
+      car_instance.save(function (err) {
+        if (err) return err.message;
+        // saved!
+      });
       //Successful, so render
-      res.render('index', { title: 'Car List', car_list: list_cars });
+      res.render('index', { title: 'Car List', list_o_cars: result });
+      return car_instance;
     });
+};
+
+exports.render_garage = function (req, res, next) {
+  carmodel.find({}).exec(function (err, list_cars) {
+    if (err) {
+      return next(err);
+    }
+    let result;
+
+    result = list_cars.map(
+      (obj) => `${obj.make + ' ' + obj.model + ' ' + obj.year + '\n'}`
+    );
+
+    //Successful, so render
+    res.render('index', { title: 'Car List', list_o_cars: result });
+  });
 };

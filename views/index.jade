@@ -3,5 +3,10 @@ extends layout
 block content
   h1 Welcome to The Garage
   h2= title
-  p= car_list
-      
+
+  ul
+    - for (let i=0; i<list_o_cars.length; i++)
+        li= list_o_cars[i]
+
+
+  
