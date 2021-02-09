@@ -1,13 +1,8 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let controller = require('../Controllers/controller');
 
+router.post('/register', controller.register);
 /* GET users listing. */
-router.get('/garage', function (req, res, next) {
-  res.render('index');
-});
-
-router.get('/cool', function (req, res, next) {
-  res.send('youre so cool!');
-});
 
 module.exports = router;

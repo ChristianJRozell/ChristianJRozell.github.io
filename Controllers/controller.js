@@ -1,6 +1,7 @@
-let cars = require('../routes/car_module');
 let carmodel = require('../models/car_model');
 const { model } = require('mongoose');
+
+const user_model = require('../models/user_model');
 
 exports.car_list = function (req, res, next) {
   // Create an instance of model SomeModel
@@ -37,30 +38,28 @@ exports.car_list = function (req, res, next) {
   //TODO display all cars as a response
 };
 
-//   // Save the new model instance, passing a callback
-// await car_instance.save( function (err) {
-//         if (err) return err.message;
-//         // saved!
-//         return car_instance
-//       });
-//   carmodel
-//     .find({})
-//     .then()
-//     .exec(function (err, list_cars) {
-//       if (err) {
-//         return next(err);
-//       }
-//       let result;
+//fix res redirect thingy
+exports.register = function (req, res, next) {
+  console.log(req.body);
+  let user = new user_model({
+    fname: req.body.fname,
+    lname: req.body.lname,
+    uname: req.body.uname,
+    email: req.body.email,
+    pword: req.body.pword,
+  });
 
-//       result = list_cars.map(
-//         (obj) => `${obj.make + ' ' + obj.model + ' ' + obj.year + '\n'}`
-//       );
+  user
+    .save()
 
-//       //Successful, so render
-//       res.render('index', { title: 'Car List', list_o_cars: result });
-//       return car_instance;
-//     });
-// };
+    .then((hpage_redirect) => {
+      res.redirect('../index.html', hpage);
+    })
+
+    .catch((err) => {
+      res.status(400).send('User Failed to Register');
+    });
+};
 
 exports.render_garage = function (req, res, next) {
   carmodel.find({}).exec(function (err, list_cars) {
