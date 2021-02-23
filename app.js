@@ -3,7 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const sessions = require('client-sessions');
 
+const sessionsecret = require('./secrets/secrets');
 const connection_string = require('./secrets/not_my_connection_string.txt');
 const mongoose = require('mongoose');
 const mongoDB = connection_string;
@@ -26,6 +28,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+  sessions({
+    cookieName: 'session',
+    secret: 'a3hy7dyf3hisd6w36usd',
+    duration: 30 * 60 * 1000,
+  })
+);
 
 app.use('/garage', garageRouter);
 app.use('/users', usersRouter);

@@ -5,43 +5,50 @@
     <h1>Register</h1>
   </head>
   <body>
-    <form action="http://localhost:3000/users/register" method="POST">
+    <form
+      action="http://localhost:3000/users/dash"
+      method="POST"
+      autocomplete="off"
+    >
       <input
         type="text"
         id="fname"
-        value="First Name"
-        required="true"
+        placeholder="First Name"
+        required
         name="fname"
       /><br />
       <input
         type="text"
         id="lname"
-        value="Last Name"
-        required="true"
+        placeholder="Last Name"
+        required
         name="lname"
       /><br />
       <input
         type="text"
         id="uname"
-        value="Username"
-        required="true"
+        placeholder="Username"
+        required
         name="uname"
       /><br />
       <input
         type="text"
         id="email"
-        value="Email"
-        required="true"
+        placeholder="Email"
+        required
         name="email"
       /><br />
       <input
-        type="text"
+        type="password"
         id="pword"
-        value="Password"
-        required="true"
+        placeholder="Password"
+        required
         name="pword"
       /><br />
       <input type="submit" value="submit" />
     </form>
+    <p>
+      <a href="http://localhost:3000/users/">Register Here</a>
+    </p>
   </body>
 </html>

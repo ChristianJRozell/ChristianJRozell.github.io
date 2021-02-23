@@ -1,0 +1,56 @@
+doctype html 
+html(lang="en")
+  head 
+    style 
+      include ../Styles/style.css
+     script 
+      include ../Scripts/scripts.js 
+    title Dibs Game Register
+  body 
+    h1 Register
+    form(action="http://localhost:3000/users/dash" method="POST" autocomplete="off")
+      input(
+        type="text"  id="fname"
+        placeholder="First Name"
+        required
+        name="fname")
+      br
+      input(
+        type="text"
+        id="lname"
+        placeholder="Last Name"
+        required
+        name="lname"
+      )
+      br
+      input(
+        type="text"
+        id="uname"
+        placeholder="Username"
+        required
+        name="uname"
+      )
+      br
+      input(
+        type="text"
+        id="email"
+        placeholder="Email"
+        required
+        name="email"
+      )
+      br
+      input(
+        type="password"
+        id="pword"
+        placeholder="Password"
+        required
+        name="pword"
+      )
+      br
+      input(
+          type="submit"
+          value="submit"
+      )
+    p 
+      a(href="http://localhost:3000/users/") Login Here 
+
