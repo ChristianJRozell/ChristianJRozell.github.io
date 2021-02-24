@@ -1,64 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dibs Game Login</title>
     <link rel="stylesheet" href="Styles/style.css" />
-    <style></style>
-    <title>Dibs Game</title>
   </head>
   <body>
-    <h1>Dibs Games</h1>
-    <!-- make sure to style and position -->
-    <ul>
-      <li>
-        <button onclick="menuopen()" id="open-button" class="open-button">
-          Menu
-        </button>
-      </li>
-
-      <li><a href="tutorial" id="tutorial" class="hide">Tutorial</a></li>
-      <li>
-        <a
-          id="garage"
-          class="hide"
-          href="http://localhost:3000/car_module/garage/"
-          >Garage</a
-        >
-      </li>
-      <li>
-        <button
-          onclick="menuclose()"
-          id="close-button"
-          class="hide"
-          class="close-button"
-        >
-          Close
-        </button>
-      </li>
-    </ul>
-    <div class="input_box">
-      <form action="http://localhost:3000/car_module/" method="POST">
-        <label for="cars_dropdown">Choose a car:</label>
-        <select
-          name="cars_dropdown"
-          id="cars_dropdown"
-          onchange="populate_model()"
-        ></select>
-        <select
-          name="model_dropdown"
-          id="model_dropdown"
-          onchange="populate_year()"
-        ></select>
-        <select name="year_dropdown" id="year_dropdown"></select>
-        <input name="submit" type="submit" />
-      </form>
-    </div>
-    <script src="Scripts/scripts.js"></script>
+    <h1>Dibs Games Login</h1>
+    <form
+      action="http://localhost:3000/users/dashboard"
+      method="POST"
+      autocomplete="off"
+    >
+      <input
+        type="text"
+        id="uname"
+        placeholder="Username"
+        required
+        name="uname"
+      /><br />
+      <input
+        type="password"
+        id="pword"
+        placeholder="Password"
+        required
+        name="pword"
+      /><br />
+      <input type="submit" value="submit" />
+    </form>
+    <p><a href="http://localhost:3000/users/register">Register Here</a></p>
   </body>
 </html>
-<!-- html of
-sidebar
-input box
-backgorund
-then js of each
-then css of each
- -->
