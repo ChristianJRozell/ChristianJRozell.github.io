@@ -19,6 +19,7 @@ const CarRouter = require('./routes/car_module');
 
 var app = express();
 
+app.get('/', (req, res) => res.render('index'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
