@@ -1,0 +1,32 @@
+doctype html 
+html(lang='en')
+  head
+    style 
+      include ../Styles/style.css
+     script 
+      include ../Scripts/scripts.js   
+    //- link(rel="stylesheet", href="../Styles/style.css", type='text/css')
+    title Dibs Game 
+  body 
+    h1 Dibs Game 
+    ul 
+      li 
+        button.open-button#open-button(onclick="menuopen()") Open
+      li 
+        a.hide#tutorial(href="tutorial") Tutorial
+      li
+        a.hide#garage(href="http://localhost:3000/car_module/garage/") Garage
+      li 
+        button.hide.close-button#close-button( onclick="menuclose()") Close
+    div.input_box
+      form( action="http://localhost:3000/car_module/" method="POST")
+        label(for="cars_dropdown") Choose a Car
+        select(name="cars_dropdown"
+          id="cars_dropdown"
+          onchange="populate_model()")
+        select( name="model_dropdown"
+          id="model_dropdown"
+          onchange="populate_year()")
+        select(name="year_dropdown" id="year_dropdown")
+        input(name="submit" type="submit")
+     

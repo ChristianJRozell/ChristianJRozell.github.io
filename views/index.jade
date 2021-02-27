@@ -6,27 +6,24 @@ html(lang='en')
      script 
       include ../Scripts/scripts.js   
     //- link(rel="stylesheet", href="../Styles/style.css", type='text/css')
-    title nyoom
+    title Dibs Game Login 
   body 
-    h1 Dibs Game 
-    ul 
-      li 
-        button.open-button#open-button(onclick="menuopen()") Open
-      li 
-        a.hide#tutorial(href="tutorial") Tutorial
-      li
-        a.hide#garage(href="http://localhost:3000/car_module/garage/") Garage
-      li 
-        button.hide.close-button#close-button( onclick="menuclose()") Close
-    div.input_box
-      form( action="http://localhost:3000/car_module/" method="POST")
-        label(for="cars_dropdown") Choose a Car
-        select(name="cars_dropdown"
-          id="cars_dropdown"
-          onchange="populate_model()")
-        select( name="model_dropdown"
-          id="model_dropdown"
-          onchange="populate_year()")
-        select(name="year_dropdown" id="year_dropdown")
-        input(name="submit" type="submit")
-     
+    h1 Dibs Game Login 
+    form( action="http://localhost:3000/users/dashboard"
+      method="POST"
+      autocomplete="off") 
+      input(type="text"
+        id="uname"
+        placeholder="Username"
+        required
+        name="uname")
+      br
+      input(type="password"
+        id="pword"
+        placeholder="Password"
+        required
+        name="pword")
+      br
+      input(type="submit" value="submit")
+    p 
+      a(href="http://localhost:3000/users/register") Register Here 
