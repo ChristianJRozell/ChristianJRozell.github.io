@@ -8,7 +8,7 @@ const sessions = require('client-sessions');
 // const connection_string = require('./secrets/not_my_connection_string.txt');
 const mongoose = require('mongoose');
 const mongoDB = process.env.connection_string;
-console.log(process.env.connection_string);
+console.log('yeet', process.env.connection_string);
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
