@@ -6,7 +6,8 @@ var logger = require('morgan');
 const sessions = require('client-sessions');
 
 const mongoose = require('mongoose');
-const mongoDB = process.env.CONNECTION_STRING;
+const mongoDB =
+  'mongodb+srv://ChristianJRozell:YaYeet@cluster0.g4g1p.mongodb.net/dibs_game?retryWrites=true&w=majority';
 console.log('yeet', process.env.CONNECTION_STRING);
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
