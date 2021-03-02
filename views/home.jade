@@ -9,7 +9,7 @@ html(lang='en')
     //- link(rel="stylesheet", href="../Styles/style.css", type='text/css')
     title Dibs Game 
   body 
-   - const user_cars;
+  
     h1 Dibs Game 
     ul 
       li 
@@ -21,6 +21,7 @@ html(lang='en')
       li 
         button.hide.close-button#close-button( onclick="menuclose()") Close
     div.input_box
+      - let user_car_list=user_cars;
       form( action="https://dibs-game.herokuapp.com/car_module/" method="POST")
         label(for="cars_dropdown") Choose a Car
         select(name="cars_dropdown"
