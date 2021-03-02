@@ -5,6 +5,5 @@ let car_controller = require('../Controllers/controller');
 
 router.post('/', car_controller.car_list);
 router.get('/garage', car_controller.render_garage);
-router.delete('/delete', car_controller.delete);
 
 module.exports = router;
