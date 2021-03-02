@@ -78,7 +78,6 @@ data.then((data) => {
   let make_name = [];
   let current_make;
   let skip;
-  console.log(data);
   //create a dropdown option for each object in the array
   for (let i = 0; i < data.results.length; i++) {
     current_make = data.results[i].Make;

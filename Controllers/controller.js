@@ -85,7 +85,6 @@ exports.dash = function (req, res, next) {
 };
 
 exports.render_garage = function (req, res, next) {
-  console.log(req.session.userId);
   if (!(req.session && req.session.userId)) {
     console.log('boop');
     return res.render('index');
@@ -112,7 +111,11 @@ exports.dashboard = function (req, res, next) {
       res.send('Username or Password is Incorrect');
     } else {
       if (bcrypt.compareSync(req.body.pword, user_list.pword)) {
-        res.render('home');
+        carmodel
+          .find({ userId: req.session.userId })
+          .exec(function (err, list_cars) {
+            res.render('home', { user_cars: list_cars });
+          });
       }
     }
   });
@@ -124,3 +127,9 @@ exports.register = function (req, res, next) {
 exports.login = function (req, res, next) {
   res.render('index');
 };
+
+// exports.delete = function (req, res, next) {
+//   carmodel.find({userId: req.session.userId}).exec(function (err, car_list) {
+
+//   })
+// }
