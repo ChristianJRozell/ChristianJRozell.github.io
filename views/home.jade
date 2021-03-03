@@ -19,17 +19,15 @@ html(lang='en')
       li 
         button.hide.close-button#close-button( onclick="menuclose()") Close
     div.input_box
-      - let user_car_list=user_cars;
-      - console.log(user_car_list)
+      
       form( action="https://dibs-game.herokuapp.com/car_module/" method="POST")
         label(for="cars_dropdown") Choose a Car
         select(name="cars_dropdown"
           id="cars_dropdown"
-          onchange="populate_model()"
-          value=user_cars.make)
+          onchange="populate_model()")
         select( name="model_dropdown"
           id="model_dropdown"
           onchange="populate_year()")
         select(name="year_dropdown" id="year_dropdown")
         input(name="submit" type="submit")
-     
+     //move the usercarlist data to the garage page

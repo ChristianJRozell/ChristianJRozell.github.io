@@ -38,7 +38,11 @@ exports.car_list = function (req, res, next) {
             (obj) => `${obj.year + ' ' + obj.make + ' ' + obj.model}`
           );
 
-          res.render('garage', { title: 'Car_list', list_o_cars: jade_list });
+          res.render('garage', {
+            title: 'Car_list',
+            list_o_cars: jade_list,
+            user_cars: list_cars,
+          });
         });
     })
     .catch((err) => {
@@ -100,10 +104,14 @@ exports.render_garage = function (req, res, next) {
     );
 
     //Successful, so render
-    res.render('garage', { title: 'Car List', list_o_cars: result });
+    res.render('garage', {
+      title: 'Car List',
+      list_o_cars: result,
+      user_cars: list_cars,
+    });
   });
 };
-//use find one to fix login bug thingy
+//move the usercarlist data to the garage page
 exports.dashboard = function (req, res, next) {
   user_model.findOne({ uname: req.body.uname }).exec(function (err, user_list) {
     req.session.userId = user_list._id;
@@ -111,11 +119,7 @@ exports.dashboard = function (req, res, next) {
       res.send('Username or Password is Incorrect');
     } else {
       if (bcrypt.compareSync(req.body.pword, user_list.pword)) {
-        carmodel
-          .find({ userId: req.session.userId })
-          .exec(function (err, list_cars) {
-            res.render('home', { user_cars: list_cars });
-          });
+        res.render('home');
       }
     }
   });
