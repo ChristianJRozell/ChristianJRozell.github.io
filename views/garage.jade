@@ -1,27 +1,31 @@
-extends layout
-
-block content
-  h1 Welcome to The Garage
-  h2= title
-
-  ul
+doctype html 
+html(lang='en')
+  head
+    style 
+      include ../Styles/style.css
+     script 
+      include ../Scripts/scripts.js 
+  body 
+    h1 Welcome to The Garage
+    h2= title
+    ul
     - for (let i=0; i<list_o_cars.length; i++)
         li= list_o_cars[i]
-  div.delete_car
-    - const user_car_list=user_cars;
-    - console.log(user_car_list)
-    form(action="https://dibs-game.herokuapp.com/car_module/delete/" method="DELETE")
-      label(for="make_delete_select") Delete a Car 
-      select(name="make_delete_select"
+    div.delete_car
+      - const user_car_list=user_cars;
+      - console.log(user_car_list)
+      form(action="https://dibs-game.herokuapp.com/car_module/delete/" method="DELETE")
+        label(for="make_delete_select") Delete a Car 
+        select(name="make_delete_select"
           id="make_delete_select"
-          onchange="delete_populate_model()"
-          value=user_car_list)
-      select(name="model_delete_select"
+          onchange="delete_populate_model()")
+        select(name="model_delete_select"
           id="model_delete_select"
           onchange="delete_populate_year()")
-      select(name="year_delete_select"
+        select(name="year_delete_select"
           id="year_delete_select")
-      input(name="submit" type="submit")
+        input(name="submit" type="submit")
+
 
 
   

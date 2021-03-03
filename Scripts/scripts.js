@@ -215,3 +215,15 @@ function populate_year() {
     }
   });
 }
+
+let delete_data = () => {
+  console.log(user_car_list);
+  let delete_make_dropdown = document.getElementById('make_delete_select');
+  delete_make_dropdown.length = 0;
+
+  let MakeOption = document.createElement('option');
+  MakeOption.text = 'Choose Make/Manufactuer';
+  //adds the default option
+  dropdown.add(MakeOption);
+  dropdown.selectedIndex = 0;
+};
