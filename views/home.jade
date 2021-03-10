@@ -15,12 +15,12 @@ html(lang='en')
       li 
         a.hide#tutorial(href="tutorial") Tutorial
       li
-        a.hide#garage(href="https://dibs-game.herokuapp.com/car_module/garage/") Garage
+        a.hide#garage(href="http://localhost:3000/car_module/garage/") Garage
       li 
         button.hide.close-button#close-button( onclick="menuclose()") Close
     div.input_box
       
-      form( action="https://dibs-game.herokuapp.com/car_module/" method="POST")
+      form( action="http://localhost:3000/car_module/" method="POST")
         label(for="cars_dropdown") Choose a Car
         select(name="cars_dropdown"
           id="cars_dropdown"

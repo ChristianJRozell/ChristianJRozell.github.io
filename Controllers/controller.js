@@ -1,5 +1,5 @@
 let carmodel = require('../models/car_model');
-const { model } = require('mongoose');
+const { model, Mongoose } = require('mongoose');
 const user_model = require('../models/user_model');
 const bcrypt = require('bcryptjs');
 
@@ -35,7 +35,7 @@ exports.car_list = function (req, res, next) {
           let jade_list;
 
           jade_list = list_cars.map(
-            (obj) => `${obj.year + ' ' + obj.make + ' ' + obj.model}`
+            (obj) => `${obj.year + '  ' + obj.make + '  ' + obj.model}`
           );
 
           res.render('garage', {
@@ -100,7 +100,7 @@ exports.render_garage = function (req, res, next) {
     let result;
 
     result = list_cars.map(
-      (obj) => `${obj.make + ' ' + obj.model + ' ' + obj.year + '\n'}`
+      (obj) => `${obj.make + '\t' + obj.model + '\t' + obj.year}`
     );
 
     //Successful, so render
@@ -132,8 +132,41 @@ exports.login = function (req, res, next) {
   res.render('index');
 };
 
-// exports.delete = function (req, res, next) {
-//   carmodel.find({userId: req.session.userId}).exec(function (err, car_list) {
+exports.delete = function (req, res, next) {
+  res.status(200);
+  let split = req.body.car.split('\t');
+  let make = split[0];
+  let car_model = split[1];
+  let year = split[2];
+  carmodel.deleteOne(
+    {
+      userId: req.session.userId,
+      make: make,
+      model: car_model,
+      year: year,
+    },
+    function (err) {
+      if (err) return handleError(err);
+      // delete car
+    }
+  );
+  carmodel.find({ userId: req.session.userId }).exec(function (err, list_cars) {
+    if (err) {
+      return next(err);
+    }
+    let result;
 
-//   })
-// }
+    result = list_cars.map(
+      (obj) => `${obj.make + '\t' + obj.model + '\t' + obj.year}`
+    );
+
+    //Successful, so render
+    res.status(200);
+    res.render('garage', {
+      title: 'Car List',
+      list_o_cars: result,
+      user_cars: list_cars,
+    });
+  });
+};
+//page not rendering but it works
