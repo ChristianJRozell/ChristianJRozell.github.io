@@ -1,7 +1,7 @@
-let carmodel = require('../models/car_model');
-const { model, Mongoose } = require('mongoose');
-const user_model = require('../models/user_model');
-const bcrypt = require('bcryptjs');
+let carmodel = require("../models/car_model");
+const { model, Mongoose } = require("mongoose");
+const user_model = require("../models/user_model");
+const bcrypt = require("bcryptjs");
 
 exports.car_list = function (req, res, next) {
   let user = user_model({
@@ -35,18 +35,18 @@ exports.car_list = function (req, res, next) {
           let jade_list;
 
           jade_list = list_cars.map(
-            (obj) => `${obj.year + '  ' + obj.make + '  ' + obj.model}`
+            (obj) => `${obj.year + "  " + obj.make + "  " + obj.model}`
           );
 
-          res.render('garage', {
-            title: 'Car_list',
+          res.render("garage", {
+            title: "Car List",
             list_o_cars: jade_list,
             user_cars: list_cars,
           });
         });
     })
     .catch((err) => {
-      res.status(400).send('Car Failed to Save');
+      res.status(400).send("Car Failed to Save");
     });
 };
 
@@ -67,9 +67,9 @@ exports.dash = function (req, res, next) {
     .then((hpage_redirect) => {
       req.session.userId = user._id;
       if (!(req.session && req.session.userId)) {
-        return res.render('index');
+        return res.render("index");
       } else {
-        res.render('home');
+        res.render("home");
       }
     })
 
@@ -78,11 +78,11 @@ exports.dash = function (req, res, next) {
         .findOne({ uname: req.body.uname })
         .exec(function (err, user_list) {
           if (user_list == null) {
-            res.status(400).send('User Failed to Register');
+            res.status(400).send("User Failed to Register");
           } else {
             return res
               .status(400)
-              .send('Username or Email Match an Already Existing Account');
+              .send("Username or Email Match an Already Existing Account");
           }
         });
     });
@@ -90,8 +90,8 @@ exports.dash = function (req, res, next) {
 
 exports.render_garage = function (req, res, next) {
   if (!(req.session && req.session.userId)) {
-    console.log('boop');
-    return res.render('index');
+    console.log("boop");
+    return res.render("index");
   }
   carmodel.find({ userId: req.session.userId }).exec(function (err, list_cars) {
     if (err) {
@@ -100,12 +100,12 @@ exports.render_garage = function (req, res, next) {
     let result;
 
     result = list_cars.map(
-      (obj) => `${obj.make + '\t' + obj.model + '\t' + obj.year}`
+      (obj) => `${obj.year + "\t" + obj.make + "\t" + obj.model}`
     );
 
     //Successful, so render
-    res.render('garage', {
-      title: 'Car List',
+    res.render("garage", {
+      title: "Car List",
       list_o_cars: result,
       user_cars: list_cars,
     });
@@ -116,28 +116,27 @@ exports.dashboard = function (req, res, next) {
   user_model.findOne({ uname: req.body.uname }).exec(function (err, user_list) {
     req.session.userId = user_list._id;
     if (user_list == null) {
-      res.send('Username or Password is Incorrect');
+      res.send("Username or Password is Incorrect");
     } else {
       if (bcrypt.compareSync(req.body.pword, user_list.pword)) {
-        res.render('home');
+        res.render("home");
       }
     }
   });
 };
 exports.register = function (req, res, next) {
-  return res.render('register');
+  return res.render("register");
 };
 
 exports.login = function (req, res, next) {
-  res.render('index');
+  res.render("index");
 };
 
 exports.delete = function (req, res, next) {
-  res.status(200);
-  let split = req.body.car.split('\t');
-  let make = split[0];
-  let car_model = split[1];
-  let year = split[2];
+  let split = req.body.car.split("\t");
+  let year = split[0];
+  let make = split[1];
+  let car_model = split[2];
   carmodel.deleteOne(
     {
       userId: req.session.userId,
@@ -157,16 +156,16 @@ exports.delete = function (req, res, next) {
     let result;
 
     result = list_cars.map(
-      (obj) => `${obj.make + '\t' + obj.model + '\t' + obj.year}`
+      (obj) => `${obj.year + "\t" + obj.make + "\t" + obj.model}`
     );
 
     //Successful, so render
-    res.status(200);
-    res.render('garage', {
-      title: 'Car List',
+    res.render("garage", {
+      title: "Car List",
       list_o_cars: result,
       user_cars: list_cars,
     });
+    // res.send("hi");
   });
 };
 //page not rendering but it works
