@@ -110,6 +110,7 @@ exports.render_garage = function (req, res, next) {
 //move the usercarlist data to the garage page
 exports.dashboard = function (req, res, next) {
   user_model.findOne({ uname: req.body.uname }).exec(function (err, user_list) {
+    console.log(user_list);
     req.session.userId = user_list._id;
     if (user_list == null) {
       res.send("Username or Password is Incorrect");
