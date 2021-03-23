@@ -4,7 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const sessions = require("client-sessions");
-const secrects = require("./secrets/secrets");
+// const secrects = require("./secrets/secrets");
 
 const mongoose = require("mongoose");
 const mongoDB = process.env.CONNECTION_STRING;
