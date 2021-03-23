@@ -15,7 +15,7 @@ ul {
 }
 .hide {
   display: none;
-  font-size: 65px;
+  font-size: 85px;
   font-family: "Times New Roman", Times, serif;
   color: black;
   border: 1px solid #3a5699;
@@ -26,7 +26,7 @@ ul {
   padding-right: 100px;
 }
 .open-button {
-  font-size: 150px;
+  font-size: 350px;
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
   border-width: 5px;
@@ -37,12 +37,12 @@ ul {
   top: 500px;
   text-align: center;
   color: rgb(78, 78, 255);
-  font-size: 55px;
+  font-size: 85px;
   -webkit-text-stroke: 0.5px rgb(0, 0, 0);
 }
 .select {
-  padding: 30px;
-  font-size: 25px;
+  padding: 60px;
+  font-size: 45px;
   border-color: #3a5699;
   border-width: 3px;
   color: rgb(255, 255, 255);
@@ -52,7 +52,7 @@ ul {
 .select-submit {
   width: 35%;
   height: 30px;
-  font-size: 25px;
+  font-size: 45px;
   border-color: #3a5699;
   color: rgb(255, 255, 255);
 }

@@ -45,7 +45,7 @@ ul {
   display: inline-block;
   position: relative;
   top: 200px;
-  font-size: 200%;
+  font-size: 500%;
   color: rgb(254, 254, 255);
   -webkit-text-stroke: 0.5px rgb(0, 0, 0);
 }
