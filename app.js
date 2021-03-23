@@ -7,8 +7,8 @@ const sessions = require("client-sessions");
 const secrects = require("./secrets/secrets");
 
 const mongoose = require("mongoose");
-//const mongoDB = process.env.CONNECTION_STRING;
-const mongoDB = secrects.connection_string;
+const mongoDB = process.env.CONNECTION_STRING;
+// const mongoDB = secrects.connection_string;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
