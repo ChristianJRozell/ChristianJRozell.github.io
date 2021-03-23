@@ -1,0 +1,34 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position-y: 65%;
+}
+h1 {
+  text-align: center;
+  font-size: 75px;
+  color: rgb(223, 203, 197, 1);
+  -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+}
+h2 {
+  position: relative;
+  text-align: center;
+  font-size: 75px;
+  -webkit-text-stroke: 0.5px rgb(223, 203, 197, 1);
+  color: rgb(0, 0, 0);
+}
+li {
+  position: relative;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 45px;
+  list-style-type: none;
+  top: 100px;
+}
+ul {
+  width: 50%;
+}

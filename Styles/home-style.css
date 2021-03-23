@@ -1,0 +1,58 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position-y: 65%;
+}
+ul {
+  list-style-type: none;
+  position: absolute;
+  top: 0%;
+}
+.hide {
+  display: none;
+  font-size: 65px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  border: 1px solid #3a5699;
+
+  /* close button is being dumb and doesn't want to be the same size, dont forget to fix it */
+}
+.close-button {
+  padding-right: 100px;
+}
+.open-button {
+  font-size: 150px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  border-width: 5px;
+  border-color: #3a5699;
+}
+.input_box {
+  position: relative;
+  top: 500px;
+  text-align: center;
+  color: rgb(78, 78, 255);
+  font-size: 55px;
+  -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+}
+.select {
+  padding: 30px;
+  font-size: 25px;
+  border-color: #3a5699;
+  border-width: 3px;
+  color: rgb(255, 255, 255);
+  background-color: #28344e;
+  -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+}
+.select-submit {
+  width: 35%;
+  height: 30px;
+  font-size: 25px;
+  border-color: #3a5699;
+  color: rgb(255, 255, 255);
+}
