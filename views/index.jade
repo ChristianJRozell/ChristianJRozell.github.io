@@ -2,28 +2,26 @@ doctype html
 html(lang='en')
   head
     style 
-      include ../Styles/style.css
-     script 
-      include ../Scripts/scripts.js   
-    //- link(rel="stylesheet", href="../Styles/style.css", type='text/css')
+      include ../Styles/style.css 
     title Dibs Game Login 
   body 
-    h1 Dibs Game Login 
-    form( action="http://localhost:3000/users/dashboard"
-      method="POST"
-      autocomplete="off") 
-      input(type="text"
-        id="uname"
-        placeholder="Username"
-        required
-        name="uname")
-      br
-      input(type="password"
-        id="pword"
-        placeholder="Password"
-        required
-        name="pword")
-      br
-      input(type="submit" value="submit")
-    p 
-      a(href="http://localhost:3000/users/register") Register Here 
+    div.login-page-register
+      h1 Dibs Game Login 
+      form.full-login-form( action="http://localhost:3000/users/dashboard"
+        method="POST"
+        autocomplete="off") 
+        input.login-form(type="text"
+          id="uname"
+          placeholder="Username"
+          required
+          name="uname")
+        br
+        input.login-form(type="password"
+          id="pword"
+          placeholder="Password"
+          required
+          name="pword")
+        br
+        input.login-submit(type="submit" value="submit")
+      p.center 
+        a.register-login-link(href="http://localhost:3000/users/register") Register Here 

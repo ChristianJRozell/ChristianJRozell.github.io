@@ -8,28 +8,39 @@
     <link rel="stylesheet" href="Styles/style.css" />
   </head>
   <body>
-    <h1>Dibs Games Login</h1>
-    <form
-      action="http://localhost:3000/users/dashboard"
-      method="POST"
-      autocomplete="off"
-    >
-      <input
-        type="text"
-        id="uname"
-        placeholder="Username"
-        required
-        name="uname"
-      /><br />
-      <input
-        type="password"
-        id="pword"
-        placeholder="Password"
-        required
-        name="pword"
-      /><br />
-      <input type="submit" value="submit" />
-    </form>
-    <p><a href="http://localhost:3000/users/register">Register Here</a></p>
+    <div class="login-page">
+      <h1>Dibs Games Login</h1>
+      <form
+        action="http://localhost:3000/users/dashboard"
+        method="POST"
+        autocomplete="off"
+        class="full-login-form"
+      >
+        <input
+          class="login-form"
+          type="text"
+          id="uname"
+          placeholder="Username"
+          required
+          name="uname"
+        /><br />
+        <input
+          class="login-form"
+          type="password"
+          id="pword"
+          placeholder="Password"
+          required
+          name="pword"
+        /><br />
+        <input type="submit" value="submit" class="login-submit" />
+      </form>
+      <p class="center">
+        <a
+          href="http://localhost:3000/users/register"
+          class="register-login-link"
+          >Register Here</a
+        >
+      </p>
+    </div>
   </body>
 </html>

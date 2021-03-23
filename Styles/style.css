@@ -1,36 +1,64 @@
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
+  background-image: url("../public/images/background.jpg");
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position-y: 65%;
+}
+h1 {
+  display: block;
+  font-size: 450%;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: unset;
+  font-style: italic;
+  -webkit-text-stroke: 1px rgb(135, 65, 246);
 }
 ul {
   list-style-type: none;
   position: absolute;
+  top: 0%;
 }
-.hide {
-  display: none;
-  font-size: 65px;
-  font-family: "Times New Roman", Times, serif;
-  color: white;
-  border: 1px solid red;
-  background-color: black;
-  /* close button is being dumb and doesn't want to be the same size, dont forget to fix it */
+.login-page-register {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
-.close-button {
-  padding-right: 100px;
-}
-.open-button {
-  font-size: 50px;
-  font-family: "Times New Roman", Times, serif;
-  font-style: italic;
-}
-.input_box {
-  border: 1px solid dodgerblue;
-  width: 30%;
-  font-size: 20px;
+.full-login-form {
+  top: 200px;
   position: relative;
-  top: 350px;
   text-align: center;
-  display: block;
-  margin: auto;
-  padding: 50px;
+}
+.login-form {
+  border-width: 2px;
+  border-color: rgb(73, 9, 224);
+  padding: 10px;
+  position: static;
+  width: 50%;
+  height: 50px;
+}
+.register-login-link {
+  display: inline-block;
+  position: relative;
+  top: 200px;
+  font-size: 200%;
+  color: rgb(254, 254, 255);
+  -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+}
+
+.center {
+  text-align: center;
+}
+.login-submit {
+  width: 35%;
+  height: 30px;
+  font-size: 25px;
+  border-color: rgb(73, 9, 224);
+  color: rgb(0, 0, 0);
+  -webkit-text-stroke: 0.5px rgb(60, 0, 255);
+  font-weight: bold;
 }

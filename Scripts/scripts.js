@@ -1,18 +1,20 @@
 function menuopen() {
   let menu_contents; //declares a variable
-  menu_contents = Array.from(document.getElementsByClassName('hide')); //returns a nodelist that is changed to an array, array contains the sidebar menu items
-  menu_contents[0].style.display = 'block'; //allows for the items in the array to be styled when function is activated
-  menu_contents[1].style.display = 'block';
-  menu_contents[2].style.display = 'block';
+  menu_contents = Array.from(document.getElementsByClassName("hide")); //returns a nodelist that is changed to an array, array contains the sidebar menu items
+  menu_contents[0].style.display = "block"; //allows for the items in the array to be styled when function is activated
+  menu_contents[1].style.display = "block";
+  menu_contents[2].style.display = "block";
+  menu_contents[3].style.display = "block";
   menu_contents;
   // varible
 }
 function menuclose() {
   let menu_contents; //declares a variable
-  menu_contents = Array.from(document.getElementsByClassName('hide')); //returns a nodelist that is changed to an array, array contains the sidebar menu items
-  menu_contents[0].style.display = 'none'; //allows for the items in the array to be styled when function is activated
-  menu_contents[1].style.display = 'none';
-  menu_contents[2].style.display = 'none';
+  menu_contents = Array.from(document.getElementsByClassName("hide")); //returns a nodelist that is changed to an array, array contains the sidebar menu items
+  menu_contents[0].style.display = "none"; //allows for the items in the array to be styled when function is activated
+  menu_contents[1].style.display = "none";
+  menu_contents[2].style.display = "none";
+  menu_contents[3].style.display = "none";
 }
 
 //connect to api, get json
@@ -34,8 +36,8 @@ let data = (async () => {
     `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?limit=10000&order=Model&excludeKeys=Category&where=${where}`,
     {
       headers: {
-        'X-Parse-Application-Id': 'ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud', // This is your app's application id
-        'X-Parse-REST-API-Key': 'Ct7pA9aVNs2d7zVziMaCtcPhC3jdLndn9kXbgMml', // This is your app's REST API key
+        "X-Parse-Application-Id": "ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud", // This is your app's application id
+        "X-Parse-REST-API-Key": "Ct7pA9aVNs2d7zVziMaCtcPhC3jdLndn9kXbgMml", // This is your app's REST API key
       },
     }
   );
@@ -47,28 +49,28 @@ let data = (async () => {
 
 data.then((data) => {
   //targeting "cars_dropdown"
-  let dropdown = document.getElementById('cars_dropdown');
+  let dropdown = document.getElementById("cars_dropdown");
   dropdown.length = 0;
   //declares the default option
-  let MakeOption = document.createElement('option');
-  MakeOption.text = 'Choose Make/Manufactuer';
+  let MakeOption = document.createElement("option");
+  MakeOption.text = "Choose Make/Manufactuer";
   //adds the default option
   dropdown.add(MakeOption);
   dropdown.selectedIndex = 0;
 
-  let model_dropdown = document.getElementById('model_dropdown');
+  let model_dropdown = document.getElementById("model_dropdown");
   model_dropdown.length = 0;
 
-  let ModelOption = document.createElement('option');
-  ModelOption.text = 'Choose Model';
+  let ModelOption = document.createElement("option");
+  ModelOption.text = "Choose Model";
 
   model_dropdown.add(ModelOption);
   model_dropdown.selectedIndex = 0;
 
-  let year_dropdown = document.getElementById('year_dropdown');
+  let year_dropdown = document.getElementById("year_dropdown");
 
-  let YearOption = document.createElement('option');
-  YearOption.text = 'Choose Year';
+  let YearOption = document.createElement("option");
+  YearOption.text = "Choose Year";
 
   year_dropdown.add(YearOption);
   year_dropdown.selectedIndex = 0;
@@ -89,7 +91,7 @@ data.then((data) => {
     }
     //If statement to jump over anything with the Make of "BMW"
     //It has to run before BMW is iterated
-    make_option = document.createElement('option');
+    make_option = document.createElement("option");
     make_option.text = data.results[i].Make;
     dropdown.add(make_option);
     //adds current make to the mak_name array
@@ -97,16 +99,16 @@ data.then((data) => {
   }
 });
 function populate_model() {
-  let dropdown_clear = document.getElementById('model_dropdown');
+  let dropdown_clear = document.getElementById("model_dropdown");
   dropdown_clear = model_dropdown.length = 0;
   dropdown_clear = year_dropdown.length = 0;
 
-  let ModelOption = document.createElement('option');
-  ModelOption.text = 'Choose Model';
+  let ModelOption = document.createElement("option");
+  ModelOption.text = "Choose Model";
   model_dropdown.add(ModelOption);
 
-  let YearOption = document.createElement('option');
-  YearOption.text = 'Choose Year';
+  let YearOption = document.createElement("option");
+  YearOption.text = "Choose Year";
   year_dropdown.add(YearOption);
 
   let data = (async () => {
@@ -127,8 +129,8 @@ function populate_model() {
       `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?limit=10000&order=Model&excludeKeys=Category&where=${where}`,
       {
         headers: {
-          'X-Parse-Application-Id': 'ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud', // This is your app's application id
-          'X-Parse-REST-API-Key': 'Ct7pA9aVNs2d7zVziMaCtcPhC3jdLndn9kXbgMml', // This is your app's REST API key
+          "X-Parse-Application-Id": "ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud", // This is your app's application id
+          "X-Parse-REST-API-Key": "Ct7pA9aVNs2d7zVziMaCtcPhC3jdLndn9kXbgMml", // This is your app's REST API key
         },
       }
     );
@@ -136,7 +138,7 @@ function populate_model() {
     return data;
   })();
   data.then((data) => {
-    let dropdown = document.getElementById('cars_dropdown');
+    let dropdown = document.getElementById("cars_dropdown");
 
     let selected_make = dropdown.options[dropdown.selectedIndex].value;
 
@@ -157,7 +159,7 @@ function populate_model() {
         continue;
       }
 
-      model_option = document.createElement('option');
+      model_option = document.createElement("option");
       model_option.text = data.results[i].Model;
       model_dropdown.add(model_option);
       push_model_name = model_name.push(current_model);
@@ -183,8 +185,8 @@ function populate_year() {
       `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?limit=10000&order=Model&excludeKeys=Category&where=${where}`,
       {
         headers: {
-          'X-Parse-Application-Id': 'ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud', // This is your app's application id
-          'X-Parse-REST-API-Key': 'Ct7pA9aVNs2d7zVziMaCtcPhC3jdLndn9kXbgMml', // This is your app's REST API key
+          "X-Parse-Application-Id": "ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud", // This is your app's application id
+          "X-Parse-REST-API-Key": "Ct7pA9aVNs2d7zVziMaCtcPhC3jdLndn9kXbgMml", // This is your app's REST API key
         },
       }
     );
@@ -192,9 +194,9 @@ function populate_year() {
     return data;
   })();
   data.then((data) => {
-    let year_dropdown = document.getElementById('year_dropdown');
-    let model_dropdown = document.getElementById('model_dropdown');
-    let dropdown = document.getElementById('cars_dropdown');
+    let year_dropdown = document.getElementById("year_dropdown");
+    let model_dropdown = document.getElementById("model_dropdown");
+    let dropdown = document.getElementById("cars_dropdown");
 
     let selected_model =
       model_dropdown.options[model_dropdown.selectedIndex].value;
@@ -209,9 +211,14 @@ function populate_year() {
         continue;
       }
 
-      year_option = document.createElement('option');
+      year_option = document.createElement("option");
       year_option.text = data.results[i].Year;
       year_dropdown.add(year_option);
     }
   });
+}
+
+function logout() {
+  document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  console.log(document.cookie);
 }

@@ -38,11 +38,7 @@ exports.car_list = function (req, res, next) {
             (obj) => `${obj.year + "  " + obj.make + "  " + obj.model}`
           );
 
-          res.render("garage", {
-            title: "Car List",
-            list_o_cars: jade_list,
-            user_cars: list_cars,
-          });
+          res.redirect("http://localhost:3000/car_module/garage/");
         });
     })
     .catch((err) => {
@@ -168,4 +164,8 @@ exports.delete = function (req, res, next) {
     // res.send("hi");
   });
 };
-//page not rendering but it works
+
+exports.logout = function (req, res, next) {
+  console.log("req.session");
+  res.redirect("http://localhost:3000/users/");
+};

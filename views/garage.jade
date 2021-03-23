@@ -1,27 +1,17 @@
 doctype html 
 html(lang='en')
   head  
+    style 
+      include ../Styles/garage.css
     script 
-       include ../Scripts/garage_scripts.js 
-    
+       include ../Scripts/garage_scripts.js  
   body 
     h1 Welcome to The Garage
       h2= title
       ul
       - for (let i=0; i<list_o_cars.length; i++)
         li(onclick='delete_car(this)', id="cars")= list_o_cars[i]
-    
-      //- div.delete_car
-      //- form(action="http://localhost:3000/car_module/delete/" method="DELETE")
-      //-   label(for="make_delete_select") Delete a Car 
-      //-   select(name="make_delete_select"
-      //-     id="make_delete_select")
-      //-   select(name="model_delete_select"
-      //-     id="model_delete_select"
-      //-     onchange="delete_populate_year()")
-      //-   select(name="year_delete_select"
-      //-     id="year_delete_select")
-      //-   input(name="submit" type="submit")
+  
 
 
 
