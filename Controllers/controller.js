@@ -113,7 +113,7 @@ exports.dashboard = function (req, res, next) {
     console.log(user_list);
     req.session.userId = user_list._id;
     if (user_list == null) {
-      res.render("index");
+      res.redirect("https://dibs-game.herokuapp.com/users/");
     } else {
       if (bcrypt.compareSync(req.body.pword, user_list.pword)) {
         res.render("home");
