@@ -44,7 +44,7 @@ ul {
 .register-login-link {
   display: inline-block;
   position: relative;
-  top: 300px;
+  top: 250px;
   font-size: 500%;
   color: rgb(254, 254, 255);
   -webkit-text-stroke: 0.5px rgb(31, 31, 31);
