@@ -38,7 +38,7 @@ exports.car_list = function (req, res, next) {
             (obj) => `${obj.year + "  " + obj.make + "  " + obj.model}`
           );
 
-          res.redirect("http://localhost:3000/car_module/garage/");
+          res.redirect("https://dibs-game.herokuapp.com/car_module/garage/");
         });
     })
     .catch((err) => {
@@ -168,5 +168,5 @@ exports.delete = function (req, res, next) {
 
 exports.logout = function (req, res, next) {
   console.log("req.session");
-  res.redirect("http://localhost:3000/users/");
+  res.redirect("https://dibs-game.herokuapp.com/users/");
 };
