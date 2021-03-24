@@ -2,7 +2,6 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  background-image: url("../public/images/background.jpg");
   background-image: url("/images/background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -11,7 +10,7 @@
 }
 h1 {
   display: block;
-  font-size: 450%;
+  font-size: 850%;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
   font-weight: unset;
@@ -29,14 +28,14 @@ ul {
   background-size: cover;
 }
 .full-login-form {
-  top: 200px;
+  top: 300px;
   position: relative;
   text-align: center;
 }
 .login-form {
   border-width: 2px;
   border-color: rgb(73, 9, 224);
-  padding: 30px;
+  padding: 50px;
   position: static;
   width: 50%;
   height: 50px;
@@ -44,7 +43,7 @@ ul {
 .register-login-link {
   display: inline-block;
   position: relative;
-  top: 200px;
+  top: 300px;
   font-size: 500%;
   color: rgb(254, 254, 255);
   -webkit-text-stroke: 0.5px rgb(0, 0, 0);
@@ -55,8 +54,7 @@ ul {
 }
 .login-submit {
   width: 35%;
-  height: 30px;
-  font-size: 25px;
+  font-size: 45px;
   border-color: rgb(73, 9, 224);
   color: rgb(0, 0, 0);
   -webkit-text-stroke: 0.5px rgb(60, 0, 255);

@@ -12,7 +12,7 @@ function delete_car(target) {
         car: target.innerHTML,
       };
 
-      const url = "https://dibs-game.herokuapp.com/car_module/delete";
+      const url = "http://localhost:3000/car_module/delete";
       let request_param = {
         method: "POST",
         headers: {
