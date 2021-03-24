@@ -15,7 +15,7 @@ h1 {
   font-family: "Times New Roman", Times, serif;
   font-weight: unset;
   font-style: italic;
-  -webkit-text-stroke: 1px rgb(135, 65, 246);
+  -webkit-text-stroke: 1px rgb(206, 206, 206);
 }
 ul {
   list-style-type: none;
@@ -34,7 +34,7 @@ ul {
 }
 .login-form {
   border-width: 2px;
-  border-color: rgb(73, 9, 224);
+  border-color: rgb(31, 31, 31);
   padding: 50px;
   position: static;
   width: 100%;
@@ -47,7 +47,7 @@ ul {
   top: 300px;
   font-size: 500%;
   color: rgb(254, 254, 255);
-  -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+  -webkit-text-stroke: 0.5px rgb(31, 31, 31);
 }
 
 .center {
@@ -56,8 +56,8 @@ ul {
 .login-submit {
   width: 50%;
   font-size: 65px;
-  border-color: rgb(73, 9, 224);
-  color: rgb(0, 0, 0);
-  -webkit-text-stroke: 0.5px rgb(60, 0, 255);
+  border-color: rgb(197, 197, 197);
+  color: rgb(31, 31, 31);
+  -webkit-text-stroke: 0.5px rgb(197, 197, 197);
   font-weight: bold;
 }
