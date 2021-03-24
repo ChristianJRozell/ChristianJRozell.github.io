@@ -111,10 +111,10 @@ exports.render_garage = function (req, res, next) {
 exports.dashboard = function (req, res, next) {
   user_model.findOne({ uname: req.body.uname }).exec(function (err, user_list) {
     console.log(user_list);
-    req.session.userId = user_list._id;
     if (user_list == null) {
-      res.redirect("https://dibs-game.herokuapp.com/users/");
+      res.render("error", {message: "Username or password is Incorrect"});
     } else {
+      req.session.userId = user_list._id;
       if (bcrypt.compareSync(req.body.pword, user_list.pword)) {
         res.render("home");
       }
