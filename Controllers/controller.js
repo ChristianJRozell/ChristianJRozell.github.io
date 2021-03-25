@@ -112,7 +112,7 @@ exports.dashboard = function (req, res, next) {
   user_model.findOne({ uname: req.body.uname }).exec(function (err, user_list) {
     console.log(user_list);
     if (user_list == null) {
-      res.render("error", {message: "Username or password is Incorrect"});
+      res.render("error", { message: "Username or password is Incorrect" });
     } else {
       req.session.userId = user_list._id;
       if (bcrypt.compareSync(req.body.pword, user_list.pword)) {
@@ -169,4 +169,8 @@ exports.delete = function (req, res, next) {
 exports.logout = function (req, res, next) {
   console.log("req.session");
   res.redirect("https://dibs-game.herokuapp.com/users/");
+};
+
+exports.tutorial = function (req, res, next) {
+  res.render("tutorial");
 };
